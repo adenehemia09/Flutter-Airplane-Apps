@@ -1,0 +1,41 @@
+import 'package:airplace_apps/models/theme.dart';
+import 'package:flutter/material.dart';
+
+class ItemBottonsNavigation extends StatelessWidget {
+  final String imageUrl;
+  final bool isSelected;
+  const ItemBottonsNavigation({
+    Key? key,
+    required this.imageUrl,
+    this.isSelected = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(),
+        Container(
+          height: 24,
+          width: 24,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                imageUrl,
+              ),
+            ),
+          ),
+        ),
+        Container(
+          height: 2,
+          width: 30,
+          decoration: BoxDecoration(
+            color: isSelected ? kprimaryColor : kTransparentsColor,
+            borderRadius: BorderRadius.circular(18),
+          ),
+        )
+      ],
+    );
+  }
+}
